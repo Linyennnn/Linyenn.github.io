@@ -32,13 +32,13 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="index.html" class="nav-link">返回首页</a>
-        <a href="合集.html" class="nav-link">博文合集</a>
+        <a href="../index.html" class="nav-link">返回首页</a>
+        <a href="../合集.html" class="nav-link">博文合集</a>
     </div>
     <div id="content"></div>
 
     <script>
-        fetch('../博文内容/article1.md')  // 更新为相对路径
+        fetch('博文内容/article1.md')  // 更新路径
             .then(response => response.text())
             .then(data => {
                 document.getElementById('content').innerHTML = marked(data);
