@@ -78,11 +78,10 @@
         <div class="title">啾星</div>
         <div class="subtitle">周深，周浅，周星星，周果子，卡布...</div>
         <div class="navbar">
-            <a href="#" class="nav-link" onclick="goToSection(2)">关于我</a>
             <a href="合集.html" class="nav-link">合集</a> <!-- 链接到新页面 -->
         </div>
     </div>
-    <div class="section section2" style="display: none;">
+    <div class="section section2">
         <h1>我的博客文章</h1>
         <div class="blog-post">
             <h2>文章标题 1</h2>
@@ -100,28 +99,33 @@
             <p>这是一篇关于我个人成长的思考。</p>
         </div>
         <div class="navbar">
-            <a href="#" class="nav-link" onclick="goToSection(1)">返回首页</a>
+            <a href="#" class="nav-link" onclick="scrollToSection(1)">返回首页</a>
         </div>
     </div>
 
     <script>
-        function goToSection(sectionNumber) {
+        let currentSection = 1;
+
+        window.addEventListener('wheel', (event) => {
+            if (event.deltaY > 0) {
+                scrollToSection(2);
+            } else {
+                scrollToSection(1);
+            }
+        });
+
+        function scrollToSection(sectionNumber) {
             const sections = document.querySelectorAll('.section');
-            sections.forEach((section, index) => {
-                section.style.display = (index + 1 === sectionNumber) ? 'flex' : 'none';
-            });
+            if (sectionNumber !== currentSection) {
+                sections[currentSection - 1].style.transform = `translateY(-${(sectionNumber - 1) * 100}vh)`;
+                currentSection = sectionNumber;
+            }
         }
 
         // 监听窗口打开事件
         window.onload = function() {
-            // 当页面重新打开时，确保加载首页
-            if (window.performance.navigation.type === 1) {
-                goToSection(1); // 确保返回首页
-            } else {
-                goToSection(1); // 初始加载第一页
-            }
+            scrollToSection(1); // 初始加载第一页
         };
     </script>
 </body>
 </html>
-
