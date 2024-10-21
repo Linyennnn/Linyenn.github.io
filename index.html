@@ -18,8 +18,8 @@
             text-align: center; 
             position: absolute; 
             width: 100%; 
-            transition: opacity 0.5s ease; 
-            opacity: 0; 
+            transition: transform 0.5s ease; /* 修改为transform */
+            transform: translateY(100%); /* 初始状态设置在下方 */
         }
         .section1 {
             background-image: url('https://img.z4a.net/images/2024/10/21/1729504630493.jpeg');
@@ -104,13 +104,12 @@
     <script>
         let currentSection = 1;
 
-        function fadeIn(section) {
-            section.style.opacity = 1; 
-        }
-
-        function fadeOut(section) {
-            section.style.opacity = 0; 
-        }
+        window.onload = function() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                section.style.transform = index === 0 ? 'translateY(0)' : 'translateY(100%)'; // 初始状态
+            });
+        };
 
         window.addEventListener('wheel', (event) => {
             if (event.deltaY > 0 && currentSection < 2) {
@@ -123,25 +122,12 @@
         function scrollToSection(sectionNumber) {
             const sections = document.querySelectorAll('.section');
             if (sectionNumber !== currentSection) {
-                fadeOut(sections[currentSection - 1]); // 淡出当前部分
-                currentSection = sectionNumber; // 更新当前部分
-                setTimeout(() => {
-                    fadeIn(sections[currentSection - 1]); // 淡入目标部分
-                }, 500); // 设置延迟以匹配淡出时间
+                sections[currentSection - 1].style.transform = 'translateY(-100%)'; // 向上滑出
+                currentSection = sectionNumber; 
+                sections[currentSection - 1].style.transform = 'translateY(0)'; // 向下滑入
             }
         }
-
-        // 监听窗口打开事件
-        window.onload = function() {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach((section, index) => {
-                if (index === 0) {
-                    fadeIn(section); // 初始加载第一页
-                } else {
-                    fadeOut(section); // 隐藏其他部分
-                }
-            });
-        };
     </script>
 </body>
 </html>
+
