@@ -38,7 +38,7 @@
     <div id="content"></div>
 
     <script>
-        fetch('article1.md')
+        fetch('../博文内容/article1.md')  // 更新为相对路径
             .then(response => response.text())
             .then(data => {
                 document.getElementById('content').innerHTML = marked(data);
