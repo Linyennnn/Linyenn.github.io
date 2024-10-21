@@ -17,7 +17,8 @@
             color: white; /* 字体颜色 */
             text-align: center; /* 中心对齐 */
             position: relative; /* 相对定位以支持绝对定位的子元素 */
-            transition: transform 0.5s; /* 平滑切换效果 */
+            transition: transform 0.5s ease, opacity 0.5s ease; /* 平滑切换效果 */
+            opacity: 0; /* 初始透明度 */
         }
         .section1 {
             background-image: url('https://img.z4a.net/images/2024/10/21/1729504630493.jpeg');
@@ -28,9 +29,6 @@
             background-image: url('https://img.z4a.net/images/2024/10/21/1729511392151.jpeg');
             background-size: cover;
             background-position: center;
-            color: #fff; /* 字体颜色 */
-            flex-direction: column; /* 垂直排列内容 */
-            padding: 20px; /* 内边距 */
         }
         .navbar {
             position: absolute; /* 绝对定位 */
@@ -80,7 +78,7 @@
             <a href="合集.html" class="nav-link">合集</a> <!-- 链接到新页面 -->
         </div>
     </div>
-    <div class="section section2" style="display: none;">
+    <div class="section section2">
         <h1>我的博客文章</h1>
         <div class="blog-post">
             <h2>文章标题 1</h2>
@@ -105,6 +103,14 @@
     <script>
         let currentSection = 1;
 
+        function fadeIn(section) {
+            section.style.opacity = 1; // 设置透明度为1
+        }
+
+        function fadeOut(section) {
+            section.style.opacity = 0; // 设置透明度为0
+        }
+
         window.addEventListener('wheel', (event) => {
             if (event.deltaY > 0 && currentSection < 2) {
                 scrollToSection(2);
@@ -116,15 +122,25 @@
         function scrollToSection(sectionNumber) {
             const sections = document.querySelectorAll('.section');
             if (sectionNumber !== currentSection) {
-                sections[currentSection - 1].style.display = 'none'; // 隐藏当前部分
-                sections[sectionNumber - 1].style.display = 'flex'; // 显示目标部分
+                fadeOut(sections[currentSection - 1]); // 淡出当前部分
                 currentSection = sectionNumber; // 更新当前部分
+                setTimeout(() => {
+                    sections.forEach(section => section.style.transform = 'translateY(0)'); // 平滑切换
+                    fadeIn(sections[currentSection - 1]); // 淡入目标部分
+                }, 500); // 设置延迟以匹配淡出时间
             }
         }
 
         // 监听窗口打开事件
         window.onload = function() {
-            scrollToSection(1); // 初始加载第一页
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                if (index === 0) {
+                    fadeIn(section); // 初始加载第一页
+                } else {
+                    fadeOut(section); // 隐藏其他部分
+                }
+            });
         };
     </script>
 </body>
