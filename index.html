@@ -17,6 +17,7 @@
             color: white; /* 字体颜色 */
             text-align: center; /* 中心对齐 */
             transition: background 0.5s; /* 背景切换过渡效果 */
+            position: relative; /* 相对定位以支持绝对定位的子元素 */
         }
         .section1 {
             background-image: url('https://img.z4a.net/images/2024/10/21/1729504630493.jpeg');
@@ -24,17 +25,11 @@
             background-position: center;
         }
         .section2 {
-            background-image: url('https://img.z4a.net/images/2024/10/21/1729511392151.jpeg'); /* 替换为新背景图 */
+            background-image: url('https://img.z4a.net/images/2024/10/21/1729511392151.jpeg');
             background-size: cover;
             background-position: center;
             color: #fff; /* 字体颜色 */
             flex-direction: column; /* 垂直排列内容 */
-            padding: 20px; /* 内边距 */
-            overflow-y: auto; /* 允许垂直滚动 */
-        }
-        .section3 {
-            background-color: rgba(0, 0, 0, 0.8); /* 半透明背景 */
-            color: #fff; /* 字体颜色 */
             padding: 20px; /* 内边距 */
             overflow-y: auto; /* 允许垂直滚动 */
         }
@@ -49,6 +44,20 @@
             text-decoration: none; /* 去掉下划线 */
             font-weight: bold; /* 加粗 */
         }
+        .title {
+            position: absolute; /* 绝对定位 */
+            top: 100px; /* 距离上边界100px */
+            left: 80px; /* 距离左边界80px */
+            font-size: 4em; /* 字体大小 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 字体阴影 */
+        }
+        .subtitle {
+            position: absolute; /* 绝对定位 */
+            top: 180px; /* 调整为合适的位置 */
+            left: 80px; /* 距离左边界80px */
+            font-size: 1.5em; /* 字体大小 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* 字体阴影 */
+        }
         .blog-post {
             margin: 20px 0; /* 每篇文章的上下间距 */
             background: rgba(255, 255, 255, 0.1); /* 半透明背景 */
@@ -58,9 +67,6 @@
         h1, h2 {
             margin: 0; /* 去掉默认边距 */
         }
-        h1 {
-            font-size: 3em; /* 主标题大小 */
-        }
         h2 {
             font-size: 2em; /* 博客标题大小 */
         }
@@ -68,7 +74,8 @@
 </head>
 <body>
     <div class="section section1">
-        <h1>欢迎来到我的个人博客</h1>
+        <div class="title">啾星</div>
+        <div class="subtitle">周深，周浅，周星星，周果子，卡布...</div>
     </div>
     <div class="section section2">
         <div class="navbar">
