@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <title>我的个人博客</title>
+    <title>Charlie Zhou&Linyenn</title> <!-- 修改标题 -->
     <style>
         body {
             margin: 0; /* 去掉默认边距 */
@@ -32,19 +32,11 @@
             padding: 20px; /* 内边距 */
             overflow-y: auto; /* 允许垂直滚动 */
         }
-        .section3 {
-            background-image: url('https://img.z4a.net/images/2024/10/21/1729511276313.jpeg');
-            background-size: cover;
-            background-position: center;
-            color: #fff; /* 字体颜色 */
-            flex-direction: column; /* 垂直排列内容 */
-            padding: 20px; /* 内边距 */
-            overflow-y: auto; /* 允许垂直滚动 */
-        }
         .navbar {
+            position: absolute; /* 绝对定位 */
+            top: 20px; /* 距离上边界20px */
+            right: 20px; /* 距离右边界20px */
             display: flex; /* 水平排列导航项 */
-            justify-content: center; /* 居中对齐 */
-            margin-bottom: 20px; /* 底部间距 */
         }
         .nav-link {
             color: white; /* 链接颜色 */
@@ -84,13 +76,12 @@
     <div class="section section1">
         <div class="title">啾星</div>
         <div class="subtitle">周深，周浅，周星星，周果子，卡布...</div>
+        <div class="navbar">
+            <a href="#" class="nav-link">关于我</a>
+            <a href="合集.html" class="nav-link">合集</a> <!-- 链接到新页面 -->
+        </div>
     </div>
     <div class="section section2">
-        <div class="navbar">
-            <a href="#" class="nav-link" onclick="scrollToSection(0)">首页</a>
-            <a href="#" class="nav-link">关于我</a>
-            <a href="#" class="nav-link" onclick="scrollToSection(2)">合集</a> <!-- 修改为“合集” -->
-        </div>
         <h1>我的博客文章</h1>
         <div class="blog-post">
             <h2>文章标题 1</h2>
@@ -109,52 +100,14 @@
         </div>
     </div>
 
-    <div class="section section3">
-        <div class="navbar">
-            <a href="#" class="nav-link" onclick="scrollToSection(0)">首页</a>
-            <a href="#" class="nav-link">关于我</a>
-            <a href="#" class="nav-link" onclick="scrollToSection(1)">博客</a> <!-- 返回博客部分 -->
-        </div>
-        <h1>我的博客合集</h1>
-        <div class="blog-post">
-            <h2>文章标题 1</h2>
-            <p>发布日期: 2024年10月21日</p>
-        </div>
-        <div class="blog-post">
-            <h2>文章标题 2</h2>
-            <p>发布日期: 2024年10月18日</p>
-        </div>
-        <div class="blog-post">
-            <h2>文章标题 3</h2>
-            <p>发布日期: 2024年10月15日</p>
-        </div>
-    </div>
-
     <script>
-        let currentSection = 0; // 当前部分索引
-
-        // 页面加载时重置为第一页
+        // 监听窗口打开事件
         window.onload = function() {
-            currentSection = 0;
-            scrollToSection(currentSection);
-        };
-
-        // 禁止默认的滚动行为，使用 JavaScript 来控制翻页
-        document.addEventListener('wheel', function(e) {
-            e.preventDefault();
-            if (e.deltaY > 0) {
-                if (currentSection < 2) {
-                    currentSection++;
-                    scrollToSection(currentSection);
-                }
+            // 当页面重新打开时，确保加载首页
+            if (window.performance.navigation.type === 1) {
+                window.location.href = "index.html"; // 替换为你首页的链接
             }
-        });
-
-        // 滚动到指定的部分
-        function scrollToSection(sectionIndex) {
-            currentSection = sectionIndex; // 更新当前部分索引
-            window.scrollTo({ top: sectionIndex * window.innerHeight, behavior: 'smooth' });
-        }
+        };
     </script>
 </body>
 </html>
