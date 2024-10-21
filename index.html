@@ -31,7 +31,6 @@
             color: #fff; /* 字体颜色 */
             flex-direction: column; /* 垂直排列内容 */
             padding: 20px; /* 内边距 */
-            overflow-y: auto; /* 允许垂直滚动 */
         }
         .navbar {
             position: absolute; /* 绝对定位 */
@@ -81,7 +80,7 @@
             <a href="合集.html" class="nav-link">合集</a> <!-- 链接到新页面 -->
         </div>
     </div>
-    <div class="section section2">
+    <div class="section section2" style="display: none;">
         <h1>我的博客文章</h1>
         <div class="blog-post">
             <h2>文章标题 1</h2>
@@ -107,9 +106,9 @@
         let currentSection = 1;
 
         window.addEventListener('wheel', (event) => {
-            if (event.deltaY > 0) {
+            if (event.deltaY > 0 && currentSection < 2) {
                 scrollToSection(2);
-            } else {
+            } else if (event.deltaY < 0 && currentSection > 1) {
                 scrollToSection(1);
             }
         });
@@ -117,8 +116,9 @@
         function scrollToSection(sectionNumber) {
             const sections = document.querySelectorAll('.section');
             if (sectionNumber !== currentSection) {
-                sections[currentSection - 1].style.transform = `translateY(-${(sectionNumber - 1) * 100}vh)`;
-                currentSection = sectionNumber;
+                sections[currentSection - 1].style.display = 'none'; // 隐藏当前部分
+                sections[sectionNumber - 1].style.display = 'flex'; // 显示目标部分
+                currentSection = sectionNumber; // 更新当前部分
             }
         }
 
@@ -129,3 +129,4 @@
     </script>
 </body>
 </html>
+
