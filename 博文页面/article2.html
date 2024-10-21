@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head> 
+<head>
     <meta charset="utf-8">
     <title>文章标题 2 - Charlie Zhou&Linyenn</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -32,13 +32,13 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="index.html" class="nav-link">返回首页</a>
-        <a href="合集.html" class="nav-link">博文合集</a>
+        <a href="../index.html" class="nav-link">返回首页</a>
+        <a href="../合集.html" class="nav-link">博文合集</a>
     </div>
     <div id="content"></div>
 
     <script>
-        fetch('article2.md')
+        fetch('博文内容/article2.md')  // 更新路径
             .then(response => response.text())
             .then(data => {
                 document.getElementById('content').innerHTML = marked(data);
