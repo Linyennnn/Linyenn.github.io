@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <title>我的博客合集</title>
+    <title>合集 - Charlie Zhou&Linyenn</title>
     <style>
         body {
             margin: 0; /* 去掉默认边距 */
@@ -12,19 +12,19 @@
         .section {
             height: 100vh; /* 每个部分的高度为视口高度 */
             display: flex; /* 使用 flexbox 对齐内容 */
-            justify-content: center; /* 水平居中 */
-            align-items: center; /* 垂直居中 */
+            flex-direction: column; /* 垂直排列内容 */
+            justify-content: flex-start; /* 从顶部开始排列 */
+            padding: 20px; /* 内边距 */
             color: white; /* 字体颜色 */
-            text-align: center; /* 中心对齐 */
-            position: relative; /* 相对定位以支持绝对定位的子元素 */
             background-image: url('https://img.z4a.net/images/2024/10/21/1729511276313.jpeg');
             background-size: cover;
             background-position: center;
         }
         .navbar {
+            position: absolute; /* 绝对定位 */
+            top: 20px; /* 距离上边界20px */
+            right: 20px; /* 距离右边界20px */
             display: flex; /* 水平排列导航项 */
-            justify-content: center; /* 居中对齐 */
-            margin-bottom: 20px; /* 底部间距 */
         }
         .nav-link {
             color: white; /* 链接颜色 */
@@ -32,29 +32,42 @@
             text-decoration: none; /* 去掉下划线 */
             font-weight: bold; /* 加粗 */
         }
-        h1 {
-            margin-top: 20px; /* 顶部间距 */
+        .blog-post {
+            margin: 20px; /* 每篇文章的间距 */
+            background: rgba(255, 255, 255, 0.1); /* 半透明背景 */
+            padding: 15px; /* 内边距 */
+            border-radius: 8px; /* 圆角 */
+            width: 300px; /* 每篇文章的宽度 */
+        }
+        .blog-container {
+            display: flex; /* 使用 flexbox 来排列文章 */
+            flex-wrap: wrap; /* 允许换行 */
+            justify-content: center; /* 水平居中 */
         }
     </style>
 </head>
 <body>
     <div class="section">
         <div class="navbar">
-            <a href="index.html" class="nav-link">首页</a>
-            <a href="#" class="nav-link">关于我</a>
+            <a href="index.html" class="nav-link">返回首页</a> <!-- 链接到首页 -->
         </div>
-        <h1>我的博客合集</h1>
-        <div class="blog-post">
-            <h2>文章标题 1</h2>
-            <p>发布日期: 2024年10月21日</p>
-        </div>
-        <div class="blog-post">
-            <h2>文章标题 2</h2>
-            <p>发布日期: 2024年10月18日</p>
-        </div>
-        <div class="blog-post">
-            <h2>文章标题 3</h2>
-            <p>发布日期: 2024年10月15日</p>
+        <div class="blog-container">
+            <div class="blog-post">
+                <h2>文章标题 1</h2>
+                <p>发布日期: 2024年10月21日</p>
+                <p>这是一篇关于我最近学习的内容的文章。</p>
+            </div>
+            <div class="blog-post">
+                <h2>文章标题 2</h2>
+                <p>发布日期: 2024年10月18日</p>
+                <p>这是一篇关于我参与的项目的文章。</p>
+            </div>
+            <div class="blog-post">
+                <h2>文章标题 3</h2>
+                <p>发布日期: 2024年10月15日</p>
+                <p>这是一篇关于我个人成长的思考。</p>
+            </div>
+            <!-- 可以继续添加其他文章 -->
         </div>
     </div>
 </body>
