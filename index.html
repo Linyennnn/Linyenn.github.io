@@ -2,39 +2,132 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <title>Linyenn</title>
+    <title>我的个人博客</title>
     <style>
         body {
-            background-image: url('https://img.z4a.net/images/2024/10/21/1729504630493.jpeg'); /* 背景图 */
-            background-size: cover; /* 使背景图覆盖整个页面 */
-            background-position: center; /* 使背景图居中 */
-            height: 100vh; /* 确保 body 的高度为 100% */
-            margin: 0; /* 去掉默认的边距 */
-            color: white; /* 修改文本颜色为白色 */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 添加文本阴影效果 */
+            margin: 0; /* 去掉默认边距 */
+            font-family: Arial, sans-serif; /* 设置字体 */
+            overflow: hidden; /* 禁止滚动 */
+        }
+        .section {
+            height: 100vh; /* 每个部分的高度为视口高度 */
             display: flex; /* 使用 flexbox 对齐内容 */
-            flex-direction: column; /* 竖直排列内容 */
-            justify-content: center; /* 垂直居中 */
-            align-items: center; /* 水平居中 */
-            text-align: center; /* 中心对齐文本 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            color: white; /* 字体颜色 */
+            text-align: center; /* 中心对齐 */
+            transition: background 0.5s; /* 背景切换过渡效果 */
+        }
+        .section1 {
+            background-image: url('https://img.z4a.net/images/2024/10/21/1729504630493.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        .section2 {
+            background-image: url('https://img.z4a.net/images/2024/10/21/1729511392151.jpeg'); /* 替换为新背景图 */
+            background-size: cover;
+            background-position: center;
+            color: #fff; /* 字体颜色 */
+            flex-direction: column; /* 垂直排列内容 */
+            padding: 20px; /* 内边距 */
+            overflow-y: auto; /* 允许垂直滚动 */
+        }
+        .section3 {
+            background-color: rgba(0, 0, 0, 0.8); /* 半透明背景 */
+            color: #fff; /* 字体颜色 */
+            padding: 20px; /* 内边距 */
+            overflow-y: auto; /* 允许垂直滚动 */
+        }
+        .navbar {
+            display: flex; /* 水平排列导航项 */
+            justify-content: center; /* 居中对齐 */
+            margin-bottom: 20px; /* 底部间距 */
+        }
+        .nav-link {
+            color: white; /* 链接颜色 */
+            margin: 0 15px; /* 链接间距 */
+            text-decoration: none; /* 去掉下划线 */
+            font-weight: bold; /* 加粗 */
+        }
+        .blog-post {
+            margin: 20px 0; /* 每篇文章的上下间距 */
+            background: rgba(255, 255, 255, 0.1); /* 半透明背景 */
+            padding: 15px; /* 内边距 */
+            border-radius: 8px; /* 圆角 */
+        }
+        h1, h2 {
+            margin: 0; /* 去掉默认边距 */
         }
         h1 {
-            position: absolute; /* 使用绝对定位 */
-            top: 100px; /* 距离顶部 20px */
-            left: 120px; /* 距离左边 20px */
-            font-size: 6em; /* 设置字体大小 */
-            margin: 0; /* 去掉默认边距 */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 添加阴影效果 */
+            font-size: 3em; /* 主标题大小 */
         }
-        p {
-            margin: 10px 0; /* 段落的上下边距 */
+        h2 {
+            font-size: 2em; /* 博客标题大小 */
         }
     </style>
 </head>
 <body>
-    <h1>啾星</h1>
-    <p>这是一个个人博客网站（大概吧</p>
-    <p>虽然目前好像什么都没有。。</p>
-    <p>以及我目前在学方向好像不是前端。。。（雾</p>
+    <div class="section section1">
+        <h1>欢迎来到我的个人博客</h1>
+    </div>
+    <div class="section section2">
+        <div class="navbar">
+            <a href="#" class="nav-link" onclick="scrollToSection(0)">首页</a>
+            <a href="#" class="nav-link">关于我</a>
+            <a href="#" class="nav-link" onclick="scrollToSection(2)">合集</a> <!-- 修改为“合集” -->
+        </div>
+        <h1>我的博客文章</h1>
+        <div class="blog-post">
+            <h2>文章标题 1</h2>
+            <p>发布日期: 2024年10月21日</p>
+            <p>这是一篇关于我最近学习的内容的文章。</p>
+        </div>
+        <div class="blog-post">
+            <h2>文章标题 2</h2>
+            <p>发布日期: 2024年10月18日</p>
+            <p>这是一篇关于我参与的项目的文章。</p>
+        </div>
+        <div class="blog-post">
+            <h2>文章标题 3</h2>
+            <p>发布日期: 2024年10月15日</p>
+            <p>这是一篇关于我个人成长的思考。</p>
+        </div>
+    </div>
+
+    <div class="section section3">
+        <div class="navbar">
+            <a href="#" class="nav-link" onclick="scrollToSection(0)">首页</a>
+            <a href="#" class="nav-link">关于我</a>
+            <a href="#" class="nav-link" onclick="scrollToSection(1)">博客</a> <!-- 返回博客部分 -->
+        </div>
+        <h1>我的博客合集</h1>
+        <div class="blog-post">
+            <h2>文章标题 1</h2>
+            <p>发布日期: 2024年10月21日</p>
+        </div>
+        <div class="blog-post">
+            <h2>文章标题 2</h2>
+            <p>发布日期: 2024年10月18日</p>
+        </div>
+        <div class="blog-post">
+            <h2>文章标题 3</h2>
+            <p>发布日期: 2024年10月15日</p>
+        </div>
+    </div>
+
+    <script>
+        // 禁止默认的滚动行为，使用 JavaScript 来控制翻页
+        document.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            if (e.deltaY > 0) {
+                window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+            }
+        });
+
+        // 滚动到指定的部分
+        function scrollToSection(sectionIndex) {
+            window.scrollTo({ top: sectionIndex * window.innerHeight, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
