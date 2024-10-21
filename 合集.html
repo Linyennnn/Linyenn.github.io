@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>我的博客合集</title>
+    <style>
+        body {
+            margin: 0; /* 去掉默认边距 */
+            font-family: Arial, sans-serif; /* 设置字体 */
+            overflow: hidden; /* 禁止滚动 */
+        }
+        .section {
+            height: 100vh; /* 每个部分的高度为视口高度 */
+            display: flex; /* 使用 flexbox 对齐内容 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            color: white; /* 字体颜色 */
+            text-align: center; /* 中心对齐 */
+            position: relative; /* 相对定位以支持绝对定位的子元素 */
+            background-image: url('https://img.z4a.net/images/2024/10/21/1729511276313.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        .navbar {
+            display: flex; /* 水平排列导航项 */
+            justify-content: center; /* 居中对齐 */
+            margin-bottom: 20px; /* 底部间距 */
+        }
+        .nav-link {
+            color: white; /* 链接颜色 */
+            margin: 0 15px; /* 链接间距 */
+            text-decoration: none; /* 去掉下划线 */
+            font-weight: bold; /* 加粗 */
+        }
+        h1 {
+            margin-top: 20px; /* 顶部间距 */
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="navbar">
+            <a href="index.html" class="nav-link">首页</a>
+            <a href="#" class="nav-link">关于我</a>
+        </div>
+        <h1>我的博客合集</h1>
+        <div class="blog-post">
+            <h2>文章标题 1</h2>
+            <p>发布日期: 2024年10月21日</p>
+        </div>
+        <div class="blog-post">
+            <h2>文章标题 2</h2>
+            <p>发布日期: 2024年10月18日</p>
+        </div>
+        <div class="blog-post">
+            <h2>文章标题 3</h2>
+            <p>发布日期: 2024年10月15日</p>
+        </div>
+    </div>
+</body>
+</html>
