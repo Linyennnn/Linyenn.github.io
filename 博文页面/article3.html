@@ -5,7 +5,7 @@
     <title>文章标题 3 - Charlie Zhou&Linyenn</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        body { 
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             background-color: #f0f0f0;
@@ -32,13 +32,13 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="index.html" class="nav-link">返回首页</a>
-        <a href="合集.html" class="nav-link">博文合集</a>
+        <a href="../index.html" class="nav-link">返回首页</a>
+        <a href="../合集.html" class="nav-link">博文合集</a>
     </div>
     <div id="content"></div>
 
     <script>
-        fetch('article3.md')
+        fetch('博文内容/article3.md')  // 更新路径
             .then(response => response.text())
             .then(data => {
                 document.getElementById('content').innerHTML = marked(data);
@@ -47,4 +47,3 @@
     </script>
 </body>
 </html>
-
