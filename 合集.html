@@ -7,10 +7,9 @@
         body {
             margin: 0; /* 去掉默认边距 */
             font-family: Arial, sans-serif; /* 设置字体 */
-            overflow: hidden; /* 禁止滚动 */
         }
         .section {
-            height: 100vh; /* 每个部分的高度为视口高度 */
+            min-height: 100vh; /* 最小高度为视口高度 */
             display: flex; /* 使用 flexbox 对齐内容 */
             flex-direction: column; /* 垂直排列内容 */
             justify-content: flex-start; /* 从顶部开始排列 */
@@ -32,6 +31,12 @@
             text-decoration: none; /* 去掉下划线 */
             font-weight: bold; /* 加粗 */
         }
+        h1 {
+            text-align: center; /* 标题居中 */
+            font-size: 2.5em; /* 标题大小 */
+            margin-bottom: 20px; /* 标题下边距 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 字体阴影 */
+        }
         .blog-post {
             margin: 20px; /* 每篇文章的间距 */
             background: rgba(255, 255, 255, 0.1); /* 半透明背景 */
@@ -51,6 +56,7 @@
         <div class="navbar">
             <a href="index.html" class="nav-link">返回首页</a> <!-- 链接到首页 -->
         </div>
+        <h1>我的博客合集</h1> <!-- 添加标题 -->
         <div class="blog-container">
             <div class="blog-post">
                 <h2>文章标题 1</h2>
