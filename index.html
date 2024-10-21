@@ -16,7 +16,6 @@
             align-items: center; /* 垂直居中 */
             color: white; /* 字体颜色 */
             text-align: center; /* 中心对齐 */
-            transition: background 0.5s; /* 背景切换过渡效果 */
             position: relative; /* 相对定位以支持绝对定位的子元素 */
         }
         .section1 {
@@ -26,6 +25,15 @@
         }
         .section2 {
             background-image: url('https://img.z4a.net/images/2024/10/21/1729511392151.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #fff; /* 字体颜色 */
+            flex-direction: column; /* 垂直排列内容 */
+            padding: 20px; /* 内边距 */
+            overflow-y: auto; /* 允许垂直滚动 */
+        }
+        .section3 {
+            background-image: url('https://img.z4a.net/images/2024/10/21/1729511276313.jpeg');
             background-size: cover;
             background-position: center;
             color: #fff; /* 字体颜色 */
@@ -123,17 +131,28 @@
     </div>
 
     <script>
+        let currentSection = 0; // 当前部分索引
+
+        // 页面加载时重置为第一页
+        window.onload = function() {
+            currentSection = 0;
+            scrollToSection(currentSection);
+        };
+
         // 禁止默认的滚动行为，使用 JavaScript 来控制翻页
         document.addEventListener('wheel', function(e) {
             e.preventDefault();
             if (e.deltaY > 0) {
-                const nextSection = Math.min(Math.floor(window.scrollY / window.innerHeight) + 1, 2);
-                window.scrollTo({ top: nextSection * window.innerHeight, behavior: 'smooth' });
+                if (currentSection < 2) {
+                    currentSection++;
+                    scrollToSection(currentSection);
+                }
             }
         });
 
         // 滚动到指定的部分
         function scrollToSection(sectionIndex) {
+            currentSection = sectionIndex; // 更新当前部分索引
             window.scrollTo({ top: sectionIndex * window.innerHeight, behavior: 'smooth' });
         }
     </script>
