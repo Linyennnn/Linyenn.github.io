@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <title>Charlie Zhou&Linyenn</title> <!-- 修改标题 -->
+    <title>Charlie Zhou&Linyenn</title>
     <style>
         body {
             margin: 0; /* 去掉默认边距 */
@@ -17,6 +17,7 @@
             color: white; /* 字体颜色 */
             text-align: center; /* 中心对齐 */
             position: relative; /* 相对定位以支持绝对定位的子元素 */
+            transition: transform 0.5s; /* 平滑切换效果 */
         }
         .section1 {
             background-image: url('https://img.z4a.net/images/2024/10/21/1729504630493.jpeg');
@@ -77,11 +78,11 @@
         <div class="title">啾星</div>
         <div class="subtitle">周深，周浅，周星星，周果子，卡布...</div>
         <div class="navbar">
-            <a href="#" class="nav-link">关于我</a>
+            <a href="#" class="nav-link" onclick="goToSection(2)">关于我</a>
             <a href="合集.html" class="nav-link">合集</a> <!-- 链接到新页面 -->
         </div>
     </div>
-    <div class="section section2">
+    <div class="section section2" style="display: none;">
         <h1>我的博客文章</h1>
         <div class="blog-post">
             <h2>文章标题 1</h2>
@@ -98,16 +99,29 @@
             <p>发布日期: 2024年10月15日</p>
             <p>这是一篇关于我个人成长的思考。</p>
         </div>
+        <div class="navbar">
+            <a href="#" class="nav-link" onclick="goToSection(1)">返回首页</a>
+        </div>
     </div>
 
     <script>
+        function goToSection(sectionNumber) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                section.style.display = (index + 1 === sectionNumber) ? 'flex' : 'none';
+            });
+        }
+
         // 监听窗口打开事件
         window.onload = function() {
             // 当页面重新打开时，确保加载首页
             if (window.performance.navigation.type === 1) {
-                window.location.href = "index.html"; // 替换为你首页的链接
+                goToSection(1); // 确保返回首页
+            } else {
+                goToSection(1); // 初始加载第一页
             }
         };
     </script>
 </body>
 </html>
+
